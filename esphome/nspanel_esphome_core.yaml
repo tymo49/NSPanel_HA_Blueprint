@@ -1068,7 +1068,7 @@ globals:
   - id: mui_timezone
     type: std::string
     restore_value: true
-    initial_value: ""
+    initial_value: "CET-1CEST,M3.5.0/2,M10.5.0/3"
 
   - id: mui_bytes_per_char
     type: uint8_t

@@ -1335,6 +1335,15 @@ binary_sensor:
       return (!id(is_uploading_tft) and disp1->is_setup());
 
 ##### START - BUTTON CONFIGURATION #####
+  ##### Custom Sensor
+  - name: Open Sensor
+    platform: gpio
+    id: open_sensor
+    pin:
+      number: 23
+      mode:
+        input: true
+        pullup: true
 button:
   ###### Factory Reset button #####
   - name: Factory reset
@@ -1694,15 +1703,6 @@ sensor:
     disabled_by_default: false
     icon: mdi:wifi
     entity_category: diagnostic
-  ##### Custom Sensor
-  - name: Open Sensor
-    platform: gpio
-    id: open_sensor
-    pin:
-      number: 23
-      mode:
-        input: true
-        pullup: true
 ##### START - SWITCH CONFIGURATION #####
 switch:
   ##### Notification unread #####

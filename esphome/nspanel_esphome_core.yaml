@@ -1694,7 +1694,15 @@ sensor:
     disabled_by_default: false
     icon: mdi:wifi
     entity_category: diagnostic
-
+  ##### Custom Sensor
+  - name: Open Sensor
+    platform: gpio
+    id: open_sensor
+    pin:
+      number: 23
+      mode:
+        input: true
+        pullup: true
 ##### START - SWITCH CONFIGURATION #####
 switch:
   ##### Notification unread #####
@@ -1775,14 +1783,6 @@ switch:
               update_bitwise_setting(id(buttons_settings), false, ButtonSettings::ButtonRight_State);
             refresh_relays->execute(2);
             refresh_hardware_buttons_bars->execute(2);
-  - name: Open Sensor
-    platform: gpio
-    id: open_sensor
-    pin:
-      number: 23
-      mode:
-        input: true
-        pullup: true
 
   ##### DISPLAY ALWAYS ON #####
   - name: Nextion display - Power

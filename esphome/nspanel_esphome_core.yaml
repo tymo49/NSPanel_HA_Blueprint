@@ -171,6 +171,7 @@ uart:
 time:
   - id: time_provider
     platform: homeassistant
+    timezone: "CET-1CEST,M3.5.0/2,M10.5.0/3"
     on_time:
       - seconds: 0
         then:

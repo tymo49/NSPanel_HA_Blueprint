@@ -1775,7 +1775,26 @@ switch:
               update_bitwise_setting(id(buttons_settings), false, ButtonSettings::ButtonRight_State);
             refresh_relays->execute(2);
             refresh_hardware_buttons_bars->execute(2);
-
+  - name: Relay 3
+    platform: gpio
+    id: relay_3
+    pin:
+      number: 23
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      then:
+        - lambda: |-
+            if (id(relay_settings) & RelaySettings::Relay2_Local)
+              update_bitwise_setting(id(buttons_settings), true, ButtonSettings::ButtonRight_State);
+            refresh_relays->execute(2);
+            refresh_hardware_buttons_bars->execute(2);
+    on_turn_off:
+      then:
+        - lambda: |-
+            if (id(relay_settings) & RelaySettings::Relay2_Local)
+              update_bitwise_setting(id(buttons_settings), false, ButtonSettings::ButtonRight_State);
+            refresh_relays->execute(2);
+            refresh_hardware_buttons_bars->execute(2);
   ##### DISPLAY ALWAYS ON #####
   - name: Nextion display - Power
     platform: gpio
